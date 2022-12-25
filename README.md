@@ -1,4 +1,5 @@
-## Simple Chatbot in Python (using NLTK) ([PPT](https://docs.google.com/presentation/d/1LHFyjx8DyFmtC3ej8HHw4idewAuG6EcOgZIZ4suzJYw/edit?usp=sharing))
+### [Presentation](https://docs.google.com/presentation/d/1LHFyjx8DyFmtC3ej8HHw4idewAuG6EcOgZIZ4suzJYw/edit?usp=sharing)
+## Simple Chatbot in Python (using NLTK) 
 
 History of chatbots dates back to 1966 when a computer program called ELIZA was invented by Weizenbaum. It imitated the language of a psychotherapist from only 200 lines of code. You can still converse with it here: [Eliza](http://psych.fullerton.edu/mbirnbaum/psych101/Eliza.htm?utm_source=ubisend.com&utm_medium=blog-link&utm_campaign=ubisend). 
 
@@ -27,11 +28,3 @@ Tf-idf weight is a weight often used in information retrieval and text mining. T
 where d1,d2 are two non zero vectors.
 
 To generate a response from our bot for input questions, the concept of document similarity will be used. We define a function response which searches the user’s utterance for one or more known keywords and returns one of several possible responses. If it doesn’t find the input matching any of the keywords, it returns a response:” I am sorry! I don’t understand you”
-
-
-
-
-
-
-
-
