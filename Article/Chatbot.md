@@ -42,13 +42,33 @@ NLTK(Natural Language Toolkit) is a leading platform for building Python program
 
 ```python
 pip install nltk
+
+# Output
+Requirement already satisfied: nltk in c:\users\username\anaconda3\lib\site-packages (3.7)
+Requirement already satisfied: click in c:\users\username\anaconda3\lib\site-packages (from nltk) (8.0.4)
+Requirement already satisfied: joblib in c:\users\username\anaconda3\lib\site-packages (from nltk) (1.1.0)
+Requirement already satisfied: regex>=2021.8.3 in c:\users\username\anaconda3\lib\site-packages (from nltk) (2022.3.15)
+Requirement already satisfied: tqdm in c:\users\username\anaconda3\lib\site-packages (from nltk) (4.64.0)
+Requirement already satisfied: colorama in c:\username\saurabh\anaconda3\lib\site-packages (from click->nltk) (0.4.4)
+Note: you may need to restart the kernel to use updated packages.
 ```
+
 
 ```python
 from nltk.stem import WordNetLemmatizer
 nltk.download('punkt') # Using the Punkt tokenizer
 nltk.download('wordnet') # Using the WordNet dictionary
 nltk.download('popular', quiet=True) # for downloading packages
+
+# Output
+
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\Username\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package wordnet to
+[nltk_data]     C:\Users\Username\AppData\Roaming\nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+Out[4] True
 ```
 
 ### Reading in the corpus
@@ -81,10 +101,19 @@ word_tokens = nltk.word_tokenize(raw_doc) # Converts doc to list of words
 
 ```python
 sent_tokens[:2]
+
+# Output
+
+Out[7] ['a chatbot (also known as a talkbot, chatterbot, bot, im bot, interactive agent, or artificial conversational entity) is a computer program or an artificial intelligence which conducts a conversation via auditory or textual methods.',
+ 'such programs are often designed to convincingly simulate how a human would behave as a conversational partner, thereby passing the turing test.']
 ```
 
 ```python
 word_tokens[:2]
+
+# Output
+
+Out[8] ['a', 'chatbot']
 ```
 
 ### Preprocessing
@@ -190,4 +219,23 @@ while(flag==True):
     else:
         flag=False
         print("ROBO: Bye! take care..")
+
+# Output
+
+ROBO: My name is Robo. I will answer your queries about Chatbots. If you want to exit, type Bye!
+Topics you can ask: Chatbot/talkbot, Eliza, Artificial Intelligence, Development, Toys, Design, Analytics, APIs
+Hi
+ROBO: hello
+Chatbot
+ROBO: design
+the chatbot design is the process that defines the interaction between the user and the chatbot.the chatbot designer will define the chatbot personality, the questions that will be asked to the users, and the overall interaction.it can be viewed as a subset of the conversational design.
+Eliza
+ROBO: history of chatbots dates back to 1966 when a computer program called eliza was invented by weizenbaum.
+APIs
+ROBO: apis
+there are many apis available for building your own chatbots, such as aarc.
+Analytics
+ROBO: it can be divided into design, building, analytics and maintenance.
+Bye
+ROBO: Bye! take care..
 ```
