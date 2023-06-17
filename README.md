@@ -22,7 +22,7 @@ One approach is to rescale the frequency of words by how often they appear in al
 
 &nbsp; &nbsp; IDF = 1+log(N/n), where, N is the number of documents and n is the number of documents a term t has appeared in.
  
-## Cosine Similarity
+### Cosine Similarity
 
 Tf-idf weight is a weight often used in information retrieval and text mining. This weight is a statistical measure used to evaluate how important a word is to a document in a collection or corpus
 
