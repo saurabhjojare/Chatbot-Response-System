@@ -1,4 +1,12 @@
 ### [Presentation](https://docs.google.com/presentation/d/1LHFyjx8DyFmtC3ej8HHw4idewAuG6EcOgZIZ4suzJYw/edit?usp=sharing)
+
+# Outline
+* [Chatbot Response System](#chatbot-response-system-in-python-using-nltk)
+* [NLP](#nlp)
+* [Prerequisites](#prerequisites)
+* [How To Run](#how-to-run)
+* [History](#history)
+
 ## Chatbot Response System in Python (using NLTK) 
 
 The Intelligent Python Chatbot project aims to enhance the user experience by providing a conversational and intelligent interface capable of understanding and responding to user queries effectively. This project presents an opportunity to explore and implement NLP techniques and machine learning algorithms in the field of chatbot development.
