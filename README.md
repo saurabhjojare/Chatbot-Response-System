@@ -4,8 +4,17 @@
 
 The Intelligent Chatbot project aims to enhance the user experience by providing a conversational and intelligent interface capable of understanding and responding to user queries effectively. This project presents an opportunity to explore and implement NLP techniques and machine learning algorithms in the field of chatbot development.
 
-## NLP
-NLP is a way for computers to analyze, understand, and derive meaning from human language in a smart and useful way. By utilizing NLP, developers can organize and structure knowledge to perform tasks such as automatic summarization, translation, named entity recognition, relationship extraction, sentiment analysis, speech recognition, and topic segmentation.
+## Features
+
+- Natural Language Processing (NLP): The system utilizes NLP techniques to understand user input and generate appropriate responses.
+- Pretrained Models: It includes pretrained models (e.g., language models, intent classifiers, named entity recognizers) to assist in understanding and processing user queries.
+- Intent Recognition: The system can recognize the intent behind user queries, allowing it to provide contextually relevant responses.
+- Customizable Responses: Developers can define custom responses or dialog flows for specific queries or conversation patterns.
+  
+## Technologies Used
+
+- Programming Language: [Python](https://www.python.org/)
+- Libraries: [NumPy](https://numpy.org/)
 
 ## Prerequisites
 ### NLTK (Natural Language Toolkit)
@@ -15,7 +24,14 @@ Installation of NLTK
 ```
 pip install nltk
 ```
-## How To Run
+## Getting Started
+1. Ensure you have Python installed on your machine (version 3.6 or higher).
+2. Clone this repository to your local machine using the following command:
+   
+git clone https://github.com/saurabhjojare/Chatbot-Response-System.git
+
+3. Start the application by running the following command:
+   
 * Jupyter Notebook
 
 You can run the chatbot.ipynb which also includes step by step instructions.
@@ -28,3 +44,7 @@ python chatbot.py
 ## History 
 
 History of chatbots dates back to 1966 when a computer program called ELIZA was invented by Weizenbaum. It imitated the language of a psychotherapist from only 200 lines of code. You can still converse with it here: [Eliza](http://psych.fullerton.edu/mbirnbaum/psych101/Eliza.htm?utm_source=ubisend.com&utm_medium=blog-link&utm_campaign=ubisend). 
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software.
