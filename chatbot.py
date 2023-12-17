@@ -51,8 +51,6 @@ def LemNormalize(text):
 
 #Keyword matching
 
-import random
-
 GREETING_INPUTS = ("hello", "hi", "greetings", "sup", "what's up", "hey")
 GREETING_RESPONSES = ["Hi", "Hey", "*nods*", "Hi there", "Hello"]
 
