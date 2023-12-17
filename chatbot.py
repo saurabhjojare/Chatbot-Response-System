@@ -1,51 +1,83 @@
-#import necessary libraries
+#Install necessary libraries
+
+#!pip install nltk
+#!pip install -U scikit-learn
+#!pip install numpy
+
+#Import necessary libraries
+
+import sys
 import io
-import random
-import string # to process standard python strings
-import warnings
 import numpy as np
+import nltk # NLTK is a leading platform for building Python programs to work with human language data.
+import string # provides the ability to do complex variable substitutions and value formatting
+import random
+import warnings
+warnings.filterwarnings('ignore')
+
+#TfidfVectorizer
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-import warnings
-warnings.filterwarnings('ignore')
+#Downloading and installing NLTK (Punkt, WordNet, Popular)
 
-import nltk
 from nltk.stem import WordNetLemmatizer
+nltk.download('punkt') # Using the Punkt tokenizer
+nltk.download('wordnet') # Using the WordNet dictionary
 nltk.download('popular', quiet=True) # for downloading packages
 
-# uncomment the following only the first time
-#nltk.download('punkt') # first-time use only
-#nltk.download('wordnet') # first-time use only
-
 #Reading in the corpus
-with open('chatbot.txt','r', encoding='utf8', errors ='ignore') as fin:
-    raw = fin.read().lower()
 
-#TOkenisation
-sent_tokens = nltk.sent_tokenize(raw)# converts to list of sentences 
-word_tokens = nltk.word_tokenize(raw)# converts to list of words
+f = open('chatbot.txt','r',errors = 'ignore')
+raw_doc = f.read()
+raw_doc = raw_doc.lower() # Converts text lowercase
 
-# Preprocessing
-lemmer = WordNetLemmatizer()
+#Tokenisation
+
+sent_tokens = nltk.sent_tokenize(raw_doc) # Converts doc to list of sentences
+word_tokens = nltk.word_tokenize(raw_doc) # Converts doc to list of words
+
+#Preprocessing
+
+lemmer = nltk.stem.WordNetLemmatizer()
+#WordNet is a semantically-oriented dictionary of English included in NLTK.
 def LemTokens(tokens):
     return [lemmer.lemmatize(token) for token in tokens]
 remove_punct_dict = dict((ord(punct), None) for punct in string.punctuation)
+
 def LemNormalize(text):
     return LemTokens(nltk.word_tokenize(text.lower().translate(remove_punct_dict)))
 
-# Keyword Matching
-GREETING_INPUTS = ("hello", "hi", "greetings", "sup", "what's up","hey",)
-GREETING_RESPONSES = ["hi", "hey", "*nods*", "hi there", "hello", "I am glad! You are talking to me"]
+#Keyword matching
+
+import random
+
+GREETING_INPUTS = ("hello", "hi", "greetings", "sup", "what's up", "hey")
+GREETING_RESPONSES = ["Hi", "Hey", "*nods*", "Hi there", "Hello"]
+
+GREETING_INPUTS1 = ("good morning", "morning")
+GREETING_RESPONSES1 = ["Good morning", "Morning"]
+
+GREETING_INPUTS2 = ("good night", "night")
+GREETING_RESPONSES2 = ["Good night", "Night"]
+
+GREETING_INPUTS3 = ("how are you", "how you doing")
+GREETING_RESPONSES3 = ["I'm fine", "Good, you?"]
 
 def greeting(sentence):
-    """If user's input is a greeting, return a greeting response"""
-    for word in sentence.split():
-        if word.lower() in GREETING_INPUTS:
-            return random.choice(GREETING_RESPONSES)
+    sentence_lower = sentence.lower()
+    
+    for greeting_input, greeting_responses in zip(
+        [GREETING_INPUTS, GREETING_INPUTS1, GREETING_INPUTS2, GREETING_INPUTS3],
+        [GREETING_RESPONSES, GREETING_RESPONSES1, GREETING_RESPONSES2, GREETING_RESPONSES3]
+    ):
+        for greeting_word in greeting_input:
+            if greeting_word in sentence_lower:
+                return random.choice(greeting_responses)
 
-# Generating response
+#Generating Response
+
 def response(user_response):
     robo_response=''
     sent_tokens.append(user_response)
@@ -60,25 +92,28 @@ def response(user_response):
         robo_response=robo_response+"I am sorry! I don't understand you"
         return robo_response
     else:
-        robo_response = robo_response+sent_tokens[idx]
+        robo_response = robo_response+sent_tokens[idx]    
         return robo_response
 
+
+
 flag=True
-print("ROBO: My name is Robo. I will answer your queries about Chatbots. If you want to exit, type Bye!")
+print("Bot: Hello! How can I assist you today? \nTo exit type bye")
 while(flag==True):
-    user_response = input()
+    user_response = input("You: ")
     user_response=user_response.lower()
     if(user_response!='bye'):
         if(user_response=='thanks' or user_response=='thank you' ):
             flag=False
-            print("ROBO: You are welcome..")
+            print("Bot: You're welcome!")
         else:
             if(greeting(user_response)!=None):
-                print("ROBO: "+greeting(user_response))
+                print("Bot: "+greeting(user_response))
             else:
-                print("ROBO: ",end="")
+                print("Bot: ",end="")
                 print(response(user_response))
                 sent_tokens.remove(user_response)
     else:
         flag=False
-        print("ROBO: Bye! take care..")    
+        print("Bot: Bye!")
+            
