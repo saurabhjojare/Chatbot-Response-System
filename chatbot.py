@@ -57,18 +57,15 @@ GREETING_RESPONSES = ["Hi", "Hey", "*nods*", "Hi there", "Hello"]
 GREETING_INPUTS1 = ("good morning", "morning")
 GREETING_RESPONSES1 = ["Good morning", "Morning"]
 
-GREETING_INPUTS2 = ("good night", "night")
-GREETING_RESPONSES2 = ["Good night", "Night"]
-
-GREETING_INPUTS3 = ("how are you", "how you doing")
-GREETING_RESPONSES3 = ["I'm fine", "Good, you?"]
+GREETING_INPUTS2 = ("how are you", "how you doing")
+GREETING_RESPONSES2 = ["I'm fine", "Good, you?"]
 
 def greeting(sentence):
     sentence_lower = sentence.lower()
     
     for greeting_input, greeting_responses in zip(
-        [GREETING_INPUTS, GREETING_INPUTS1, GREETING_INPUTS2, GREETING_INPUTS3],
-        [GREETING_RESPONSES, GREETING_RESPONSES1, GREETING_RESPONSES2, GREETING_RESPONSES3]
+        [GREETING_INPUTS, GREETING_INPUTS1, GREETING_INPUTS2],
+        [GREETING_RESPONSES, GREETING_RESPONSES1, GREETING_RESPONSES2]
     ):
         for greeting_word in greeting_input:
             if greeting_word in sentence_lower:
